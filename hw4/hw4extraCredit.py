@@ -93,8 +93,9 @@ def main():
     door_top_middle_pt = win.getMouse()
     door_top_middle_x = door_top_middle_pt.getX()
     base_width = base_x2 - base_x1
-    door_tl_corner_x_pt = door_top_middle_x - ((base_width/5)/2)
-    door_br_corner_x_pt = door_top_middle_x + ((base_width/5)/2)
+    # 1/5th of base & 1/2 b/c it is the middle pt & need to get corner pt
+    door_tl_corner_x_pt = door_top_middle_x - (base_width/(5*2))
+    door_br_corner_x_pt = door_top_middle_x + (base_width/(5*2))
     door_tl_corner_y_pt = door_top_middle_pt.getY()
     if base_y1 > base_y2:
         door_br_corner_y_pt = base_y1
@@ -107,7 +108,29 @@ def main():
     rect_door.setWidth(2)
     rect_door.draw(win)
 
+    # Update prompt at bottom of window
+    info_label.setText("Click inside the house base to draw"
+                       " the window")
 
+    # Get user click point for the windows center point
+    # and calculate window's opposite corner points
+    window_center_pt = win.getMouse()
+    window_center_x = window_center_pt.getX()
+    window_center_y = window_center_pt.getY()
+    door_width = door_br_corner_x_pt - door_tl_corner_x_pt
+    # 1/2 of door width & 1/2 for center to corner pt
+    distance_window_center_corner = door_width / (2*2)
+    window_tl_corner_x_pt = window_center_x - distance_window_center_corner
+    window_br_corner_x_pt = window_center_x + distance_window_center_corner
+    window_tl_corner_y_pt = window_center_y - distance_window_center_corner
+    window_br_corner_y_pt = window_center_y + distance_window_center_corner
+
+    # Draw window
+    rect_window = Rectangle(
+        Point(window_tl_corner_x_pt, window_tl_corner_y_pt),
+        Point(window_br_corner_x_pt, window_br_corner_y_pt))
+    rect_window.setWidth(2)
+    rect_window.draw(win)
 
 
 
