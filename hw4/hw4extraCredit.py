@@ -91,8 +91,21 @@ def main():
     # Get user click point for door's top edge
     # and calculate door's rectangle opposite corner pts
     door_top_middle_pt = win.getMouse()
+    door_top_middle_x = door_top_middle_pt.getX()
     base_width = base_x2 - base_x1
-    door_width = base_width/5
+    door_tl_corner_x_pt = door_top_middle_x - ((base_width/5)/2)
+    door_br_corner_x_pt = door_top_middle_x + ((base_width/5)/2)
+    door_tl_corner_y_pt = door_top_middle_pt.getY()
+    if base_y1 > base_y2:
+        door_br_corner_y_pt = base_y1
+    else:
+        door_br_corner_y_pt = base_y2
+
+    # Draw door
+    rect_door = Rectangle(Point(door_tl_corner_x_pt, door_tl_corner_y_pt),
+                          Point(door_br_corner_x_pt, door_br_corner_y_pt))
+    rect_door.setWidth(2)
+    rect_door.draw(win)
 
 
 
