@@ -142,9 +142,14 @@ def main():
     # ---Output--- #
 
     # Draw roof
-    triangle_roof = Polygon(Point(roof_peak_pt.getX(), roof_peak_pt.getY()),
-                            Point(base_x1, base_y1),
-                            Point(base_x2, base_y1))
+    if base_y1 < base_y2:
+        triangle_roof = Polygon(Point(roof_peak_pt.getX(), roof_peak_pt.getY()),
+                                Point(base_x1, base_y1),
+                                Point(base_x2, base_y1))
+    else:
+        triangle_roof = Polygon(Point(roof_peak_pt.getX(), roof_peak_pt.getY()),
+                                Point(base_x1, base_y2),
+                                Point(base_x2, base_y2))
     triangle_roof.setWidth(2)
     triangle_roof.draw(win)
 
