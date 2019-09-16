@@ -55,7 +55,7 @@ def main():
     house_canvas.draw(win)
 
     # Display label at bottom of window for user prompt and information
-    info_label = Text(Point(250, 485), "Click in the white box to draw"
+    info_label = Text(Point(250, 485), "1. Click in the white box to draw"
                                        " the 1st corner of the house base.")
     info_label.setTextColor("#FFFFFF")
     info_label.draw(win)
@@ -69,7 +69,7 @@ def main():
     base_corner_pt.draw(win)
 
     # Update prompt at bottom of window
-    info_label.setText("Click again to draw the opposite corner"
+    info_label.setText("2. Click again to draw the opposite corner"
                        " of the house base")
 
     # Get user click point for opposite corner of base
@@ -85,7 +85,7 @@ def main():
     rect_base.draw(win)
 
     # Update prompt at bottom of window
-    info_label.setText("Click inside the house base to draw"
+    info_label.setText("3. Click inside the house base to draw"
                        " the top edge of the door")
 
     # Get user click point for door's top edge
@@ -94,8 +94,8 @@ def main():
     door_top_middle_x = door_top_middle_pt.getX()
     base_width = base_x2 - base_x1
     # 1/5th of base & 1/2 b/c it is the middle pt & need to get corner pt
-    door_tl_corner_x_pt = door_top_middle_x - (base_width/(5*2))
-    door_br_corner_x_pt = door_top_middle_x + (base_width/(5*2))
+    door_tl_corner_x_pt = door_top_middle_x - (base_width / (5 * 2))
+    door_br_corner_x_pt = door_top_middle_x + (base_width / (5 * 2))
     door_tl_corner_y_pt = door_top_middle_pt.getY()
     if base_y1 > base_y2:
         door_br_corner_y_pt = base_y1
@@ -109,7 +109,7 @@ def main():
     rect_door.draw(win)
 
     # Update prompt at bottom of window
-    info_label.setText("Click inside the house base to draw"
+    info_label.setText("4. Click inside the house base to draw"
                        " the window")
 
     # Get user click point for the windows center point
@@ -119,7 +119,7 @@ def main():
     window_center_y = window_center_pt.getY()
     door_width = door_br_corner_x_pt - door_tl_corner_x_pt
     # 1/2 of door width & 1/2 for center to corner pt
-    distance_window_center_corner = door_width / (2*2)
+    distance_window_center_corner = door_width / (2 * 2)
     window_tl_corner_x_pt = window_center_x - distance_window_center_corner
     window_br_corner_x_pt = window_center_x + distance_window_center_corner
     window_tl_corner_y_pt = window_center_y - distance_window_center_corner
@@ -132,10 +132,21 @@ def main():
     rect_window.setWidth(2)
     rect_window.draw(win)
 
+    # Update prompt at bottom of window
+    info_label.setText("5. Click above the house base to draw"
+                       " the roof")
 
-
+    # Get user click point for roof's peak
+    roof_peak_pt = win.getMouse()
 
     # ---Output--- #
+
+    # Draw roof
+    triangle_roof = Polygon(Point(roof_peak_pt.getX(), roof_peak_pt.getY()),
+                            Point(base_x1, base_y1),
+                            Point(base_x2, base_y1))
+    triangle_roof.setWidth(2)
+    triangle_roof.draw(win)
 
     # Close window
     info_label.setText("Click to exit")
