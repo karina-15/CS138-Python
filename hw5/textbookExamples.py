@@ -114,6 +114,13 @@ def main():
     # accumulation variable
     message = ""
 
+    # ---pg.136---
+    # string split method
+    myString = "Hello, string methods!"
+    print("myString = ", myString)
+    print("myString.split() -->", myString.split())
+
+    print("\"32,24,25,57\".split(\",\") -->", "32,24,25,57".split(","))
 
 
 
