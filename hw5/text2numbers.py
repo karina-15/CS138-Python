@@ -15,6 +15,7 @@ def main():
     print("\nHere are the Unicode codes:")
 
     # Loop through the message and print out the Unicode values
+    # space also has a value of 32 Unicode
     for ch in message:
         print(ord(ch), end=" ")
 
