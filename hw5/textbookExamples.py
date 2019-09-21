@@ -72,6 +72,7 @@ def main():
     # S p a m !
 
     # ---pg.128---
+    # Lists also start @ index 0
     print()
     print("[1, 2] + [3, 4] -->", [1, 2] + [3, 4])
     print("[1, 2] * 3 -->", [1, 2] * 3)
@@ -80,6 +81,23 @@ def main():
     print("grades[0] -->", grades[0])
     print("grades[2:4] -->", grades[2:4])
     print("len(grades) -->", len(grades))
+
+    # ---pg.130---
+    # Lists can be changed (Lists are mutable, strings are not)
+    # Strings cannot be changed "in place"
+    print("myList = [34, 26, 15, 10]")
+    myList = [34, 26, 15, 10]
+    print("myList[2] -->", myList[2])
+    print("myList[2] = 0")
+    myList[2] = 0
+    print("myList -->", myList)
+    print("myString = \"Hello World\"")
+    myString = "Hello World"
+    print("myString[2] -->", myString[2])
+    print("myString[2] = 'z'")
+    # myString[2] = 'z'     --> TypeError
+
+
 
 
 
