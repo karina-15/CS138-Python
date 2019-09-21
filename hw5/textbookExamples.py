@@ -67,8 +67,8 @@ def main():
     # 4
     len("SpamAndEggs")
     # 11
-    # for ch in "Spam!":
-    #     print(ch, end=" ")
+    for ch in "Spam!":
+        print(ch, end=" ")
     # S p a m !
 
 
