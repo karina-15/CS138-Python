@@ -1,12 +1,15 @@
 #! /usr/bin/python
 #
-# STRING OPERATIONS
+# STRING OPERATIONS - pg.125
 # concatenation +
 # repetition *
 # indexing <string>[]
 # slicing <string>[:]
 # length len(<string>)
 # iteration thru chars for <var> in <string>
+#
+# SOME STRING METHODS - pg.140
+#
 
 
 def main():
@@ -138,6 +141,22 @@ def main():
     print("x = eval(input(\"Enter a number \"))")
     x = eval(input("Enter a number "))
     print("x -->", x)
+
+    #  ---pg.139---
+    # some string methods
+    print("s = hello, I came here for an argument")
+    s = "hello, I came here for an argument"
+    print("s.capitalize() -->", s.capitalize())
+    print("s.title() -->", s.title())
+    print("s.lower() -->", s.lower())
+    print("s.upper() -->", s.upper())
+    print("s.replace(\"I\", \"you\") -->", s.replace("I", "you"))
+    print("s.center(30) -->", s.center(30))
+    print("s.center(50) -->", s.center(50))
+    print("s.count('e') -->", s.count('e'))
+    print("s.find(',') -->", s.find(','))
+    print("\" \".join([\"Number\", \"one\", \"the\", \"Larch\"]) -->", " ".join(["Number", "one", "the", "Larch"]))
+    print("\"spam\".join([\"Number\", \"one\", \"the\", \"Larch\"]) -->", "spam".join(["Number", "one", "the", "Larch"]))
 
 
 main()
