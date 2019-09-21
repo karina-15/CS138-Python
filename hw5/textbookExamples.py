@@ -110,7 +110,9 @@ def main():
     print("chr(8364) -->", chr(8364))
 
     # ---pg.135---
-    # initialize empty
+    # initialize empty string variable at beginning of program
+    # accumulation variable
+    message = ""
 
 
 
