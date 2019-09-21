@@ -1,6 +1,6 @@
 #! /usr/bin/python
 #
-# month.py
+# month.py - pg.128
 #   A program to print the abbreviation of a month, given its number
 
 

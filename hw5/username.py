@@ -1,6 +1,6 @@
 #! /usr/bin/python
 #
-# username.py
+# username.py - pg.126
 #   Simple string processing program to generate usernames.
 
 
