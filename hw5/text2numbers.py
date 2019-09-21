@@ -4,6 +4,7 @@
 #   A program to convert a textual message into a sequence of
 #       numbers, utilizing the underlying Unicode encoding.
 
+
 def main():
     print("This program converts a textual message into a sequence"
           "\nof numbers representing the Unicode encoding of the message.\n")
