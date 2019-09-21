@@ -97,6 +97,14 @@ def main():
     print("myString[2] = 'z'")
     # myString[2] = 'z'     --> TypeError
 
+    # ---pg.132---
+    # (ordinal) ord = char -> # code of char
+    # chr = # code -> char
+    print("ord(\"a\") -->", ord("a"))
+    print("ord(\"A\") -->", ord("A"))
+    print("chr(97) -->", chr(97))
+    print("chr(90) -->", chr(90))
+
 
 
 
