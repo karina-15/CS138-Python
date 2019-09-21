@@ -122,7 +122,22 @@ def main():
 
     print("\"32,24,25,57\".split(\",\") -->", "32,24,25,57".split(","))
 
-
+    # ---pg.137---
+    # eval examples
+    # eval takes a string & evaluates it as a Python expression
+    print("numStr = 500")
+    numStr = "500"
+    print("eval(numStr) -->", eval(numStr))
+    print("eval(\"345.67\") -->", eval("345.67"))
+    print("eval(\"3+4\") -->", eval("3+4"))
+    print("x = 3.5")
+    print("y = 4.7")
+    x = 3.5
+    y = 4.7
+    print("eval(\"x * y\") -->", eval("x * y"))
+    print("x = eval(input(\"Enter a number \"))")
+    x = eval(input("Enter a number "))
+    print("x -->", x)
 
 
 main()
