@@ -158,5 +158,14 @@ def main():
     print("\" \".join([\"Number\", \"one\", \"the\", \"Larch\"]) -->", " ".join(["Number", "one", "the", "Larch"]))
     print("\"spam\".join([\"Number\", \"one\", \"the\", \"Larch\"]) -->", "spam".join(["Number", "one", "the", "Larch"]))
 
+    # list append
+    print("squares = []")
+    squares = []
+    print("for x in range(1,101):\n\tsquares.append(x*x)")
+    for x in range(1,101):
+        squares.append(x*x)
+    print("squares = ", squares)
+
+
 
 main()
