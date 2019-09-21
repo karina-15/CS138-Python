@@ -98,12 +98,16 @@ def main():
     # myString[2] = 'z'     --> TypeError
 
     # ---pg.132---
+    # Python uses Unicode over ASCII for more unique characters
+    # Unicode includes all ASCII character #s
     # (ordinal) ord = char -> # code of char
     # chr = # code -> char
     print("ord(\"a\") -->", ord("a"))
     print("ord(\"A\") -->", ord("A"))
     print("chr(97) -->", chr(97))
     print("chr(90) -->", chr(90))
+    print("chr(960) -->", chr(960))
+    print("chr(8364) -->", chr(8364))
 
 
 
