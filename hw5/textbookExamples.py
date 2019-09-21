@@ -71,5 +71,16 @@ def main():
         print(ch, end=" ")
     # S p a m !
 
+    # ---pg.128---
+    print()
+    print("[1, 2] + [3, 4] -->", [1, 2] + [3, 4])
+    print("[1, 2] * 3 -->", [1, 2] * 3)
+    grades = ['A', 'B', 'C', 'D', 'F']
+    print("grades = ['A', 'B', 'C', 'D', 'F']")
+    print("grades[0] -->", grades[0])
+    print("grades[2:4] -->", grades[2:4])
+    print("len(grades) -->", len(grades))
+
+
 
 main()
