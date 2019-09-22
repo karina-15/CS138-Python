@@ -28,6 +28,12 @@
 #   s.title()                   copy of s w/ 1st char of ea. word
 #                               capitalized
 #   s.upper()                   copy of s w/ all chars convert to uppercase
+#
+# TYPE CONVERSION FUNCTIONS
+#   float(<expr>)   convert expr to a floating point value
+#   int(<expr>)     convert expr to an integer value
+#   str(<expr>)     return a string representation of expr
+#   eval(<string>)  evaluate string as an expression
 
 
 def main():
