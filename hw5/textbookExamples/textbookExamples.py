@@ -298,7 +298,7 @@ def main():
     #   and closed new file
 
     # open file for reading
-    infile = open("numbers.dat", "r")
+    # infile = open("numbers.dat", "r")
 
     # readline() - only gets 1 line, always ends w/ newline char, input discards newline
 
