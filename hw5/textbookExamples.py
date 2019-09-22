@@ -205,9 +205,15 @@ def main():
     # eval("05")
     # returns invalid token error
 
-
-
-
+    # ---pg.146---
+    # convert # to string
+    str(500)
+    # '500'
+    value = 3.14
+    str(value)
+    # '3.14'
+    print("The value is", str(value) + ".")
+    # The value is 3.14.
 
 
 main()
