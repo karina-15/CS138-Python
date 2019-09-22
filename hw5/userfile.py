@@ -13,6 +13,7 @@ def main():
     outfileName = input("What file should the usernames go in? ")
 
     # open the files
+    # multiple files can be opened & worked on at the same time
     infile = open(infileName, "r")
     outfile = open(outfileName, "w")
 
@@ -21,7 +22,7 @@ def main():
         # get the 1st & last names from line
         first, last = line.split()
         # create the username
-        uname = (first[0] + last[:7].lower())
+        uname = (first[0] + last[:7].lower())   # uname is all lowercase
         # write it to the output file
         print(uname, file=outfile)  # doesn't need '\n' b/c at ea. print 1 is created
 
