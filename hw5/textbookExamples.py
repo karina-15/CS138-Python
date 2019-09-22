@@ -184,5 +184,30 @@ def main():
         squares.append(x*x)
     print("squares = ", squares)
 
+    # ---pg.144---
+    # int, float conversions
+    int("3")
+    # 3
+    float("3")
+    # 3.0
+    float("3.5")
+    # 3.5
+    # int("3.5")
+    # returns ValueError
+
+    # int, float leading zeros
+    int("008")
+    # 8
+    int("05")
+    # 5
+    int("009")
+    # 9
+    # eval("05")
+    # returns invalid token error
+
+
+
+
+
 
 main()
