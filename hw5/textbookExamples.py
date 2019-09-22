@@ -1,15 +1,33 @@
 #! /usr/bin/python
 #
 # STRING OPERATIONS - pg.125
-# concatenation +
-# repetition *
-# indexing <string>[]
-# slicing <string>[:]
-# length len(<string>)
-# iteration thru chars for <var> in <string>
+#   +                       concatenation
+#   *                       repetition
+#   <string>[]              indexing
+#   <string>[:]             slicing
+#   len(<string>)           length
+#   for <var> in <string>   iteration thru chars
 #
 # SOME STRING METHODS - pg.140
-#
+#   s.capitalize()              copy of s with only the 1st char capitalized
+#   s.center(width)             copy of s centered in a field of given width
+#   s.count(sub)                count the # of occurrences of sub in s
+#   s.find(sub)                 find the 1st position where sub occurs in s
+#   s.join(list)                concatenate list into a string, using s as
+#                               separator
+#   s.ljust(width)              like center, but s is left-justified
+#   s.lower()                   copy of s in all lowercase char
+#   s.lstrip()                  copy of s with leading white space removed
+#   s.replace(oldsub,newsub)    replace all occurrences of oldsub in s with
+#                               newsub
+#   s.rfind(sub)                like find, but returns rightmost position
+#   s.rjust(width)              like center, but s is right-justified
+#   s.rstrip()                  copy of s with trailing white space removed
+#   s.split()                   split s into a list of substrings
+#                               (see example below)
+#   s.title()                   copy of s w/ 1st char of ea. word
+#                               capitalized
+#   s.upper()                   copy of s w/ all chars convert to uppercase
 
 
 def main():
@@ -165,7 +183,6 @@ def main():
     for x in range(1,101):
         squares.append(x*x)
     print("squares = ", squares)
-
 
 
 main()
