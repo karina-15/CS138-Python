@@ -29,11 +29,30 @@
 #                               capitalized
 #   s.upper()                   copy of s w/ all chars convert to uppercase
 #
-# TYPE CONVERSION FUNCTIONS
+# TYPE CONVERSION FUNCTIONS - pg.146
 #   float(<expr>)   convert expr to a floating point value
 #   int(<expr>)     convert expr to an integer value
 #   str(<expr>)     return a string representation of expr
 #   eval(<string>)  evaluate string as an expression
+#
+# STRING FORMATTING - pg.148
+#   <template-string>.format(<values>)
+#   {<index>:<format-specifier>}    # inside template-string where values go
+#                                   # index not needed in Python 3.1
+#                                   # index starts at 0 - l->r when omitted
+#   <width>.<precision><type>       # in <format-specifier>
+#                                   # width = space size of whole # value
+#                                   # if value < width then fills w/ spaces
+#                                   # if value > width then still shows full #
+#                                   # width = 0 means use as much space as needed
+#                                   # precision = 2 means round to 2 decimal places
+#                                   # type char f means value should be a fixed pt #
+#                                   # f means value should always show 2 decimal places even if 0
+#
+# STRING JUSTIFICATION - pg.150
+#   <   # left justification
+#   >   # right justification
+#   ^   # center justification
 
 
 def main():
@@ -220,6 +239,35 @@ def main():
     # '3.14'
     print("The value is", str(value) + ".")
     # The value is 3.14.
+
+    # ---pg.149---
+    print("Hello {0} {1}, you may have won ${2}".format("Mr.", "Smith", 10000))
+    # Hello Mr. Smith, you may have won $10000
+    print("This int, {0:5}, was placed in a field of width 5".format(7))
+    # This int,     7, was placed in a field of width 5
+    print("This int, {0:10}, was placed in a field of width 10".format(7))
+    # This int,          7, was placed in a field of width 10
+
+    # not fixed-pt float = significant digits
+    print("This float, {0:10.5}, has width 10 and precision 5".format(3.1415926))
+    # This float,     3.1416, has width 10 and precision 5
+
+    # fixed-pt gives # of decimal places
+    print("This float, {0:10.5f}, is fixed at 5 decimal places".format(3.1415926))
+    # This float,    3.14159, is fixed at 5 decimal places
+
+    # not fixed-pt float = significant digits
+    print("This float, {0:0.5}, has width 0 and precision 5".format(3.1415926))
+    # This float, 3.1416, has width 0 and precision 5
+
+    # if over value's decimal places, python fills in spaces w/ 0s
+    print("Compare {0} and {0:0.20}".format(3.14))
+    # Compare 3.14 and 3.1400000000000001243
+
+    # ---pg.150---
+    print("left justification: {0:<5}".format("Hi!"))
+    print("right justification: {0:>5}".format("Hi!"))
+    print("centered: {0:^5}".format("Hi!"))
 
 
 main()
