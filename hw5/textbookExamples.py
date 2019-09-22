@@ -53,6 +53,15 @@
 #   <   # left justification
 #   >   # right justification
 #   ^   # center justification
+# FILE PROCESSING - pg.154
+#   <variable> = open(<name>, <mode>)   # create file object
+#                                       # name = name of file on disk
+#                                       # mode = r or w
+#   <file>.read()       # returns entire remaining contents of file as a single large string
+#   <file>.readline()   # returns next line of file, INCLUDING NEXT newline char
+#   <file>.readlines()  # returns a LIST of remaining lines in file.
+#                       # ea. list item is a single line INCLUDING newline char at END
+#   print(..., file=<outputFile>)   # print to file, instead of Run screen
 
 
 def main():
@@ -75,7 +84,7 @@ def main():
     print(greet[0], greet[2], greet[4])
     # H l o
     x = 8
-    print(greet[x-2])
+    print(greet[x - 2])
     # B
 
     # ---pg.124---
@@ -91,11 +100,11 @@ def main():
     # 'Hel'
     greet[5:9]
     # ' Bob'
-    greet[:5]   # from start of string
+    greet[:5]  # from start of string
     # 'Hello'
-    greet[5:]   # til end of string
+    greet[5:]  # til end of string
     # ' Bob'
-    greet[:]    # entire string
+    greet[:]  # entire string
     # 'Hello Bob'
 
     # ---pg.125---
@@ -182,8 +191,9 @@ def main():
     y = 4.7
     print("eval(\"x * y\") -->", eval("x * y"))
     print("x = eval(input(\"Enter a number \"))")
-    x = eval(input("Enter a number "))
-    print("x -->", x)
+    # commented out to keep program running to the end
+    # x = eval(input("Enter a number "))
+    # print("x -->", x)
 
     #  ---pg.139---
     # some string methods
@@ -199,14 +209,15 @@ def main():
     print("s.count('e') -->", s.count('e'))
     print("s.find(',') -->", s.find(','))
     print("\" \".join([\"Number\", \"one\", \"the\", \"Larch\"]) -->", " ".join(["Number", "one", "the", "Larch"]))
-    print("\"spam\".join([\"Number\", \"one\", \"the\", \"Larch\"]) -->", "spam".join(["Number", "one", "the", "Larch"]))
+    print("\"spam\".join([\"Number\", \"one\", \"the\", \"Larch\"]) -->",
+          "spam".join(["Number", "one", "the", "Larch"]))
 
     # list append
     print("squares = []")
     squares = []
     print("for x in range(1,101):\n\tsquares.append(x*x)")
-    for x in range(1,101):
-        squares.append(x*x)
+    for x in range(1, 101):
+        squares.append(x * x)
     print("squares = ", squares)
 
     # ---pg.144---
@@ -268,6 +279,56 @@ def main():
     print("left justification: {0:<5}".format("Hi!"))
     print("right justification: {0:>5}".format("Hi!"))
     print("centered: {0:^5}".format("Hi!"))
+
+    # ---pg.152---
+    # \n means newline in Python
+    # must use print to see newlines otherwise it displays
+    # 'Hello\nWorld\n\nGoodbye 32\n'
+    print("Hello\nWorld\n\nGoodbye 32\n")
+
+    # ---pg.153---
+    # file processing
+    #   1. open file
+    #   2. manipulate file
+    #       read~input & write~output
+    #   3. close file
+    # to save file, after the above steps have been made
+    #   create a new file w/ same name,
+    #   write (modified) contents of memory in new file
+    #   and closed new file
+
+    # open file for reading
+    infile = open("numbers.dat", "r")
+
+    # readline() - only gets 1 line, always ends w/ newline char, input discards newline
+
+    # prints 1st 5 lines of file
+    #
+    # inline = open(someFile, "r")
+    # for i in range(5):
+    #     line = infile.readline()
+    #     print(line[:-1])  # removes newline at end of file string, w/o would have an extra newline
+    #     # could also use print(line, end="") to remove 'print's newline
+
+    # show file contents using readlines()
+    # but large file can take up too much RAM
+    #
+    # infile = open(someFile, "r")
+    # for line in infile.readlines():
+    #     # process the line here
+    # infile.close()
+
+    # better way of looping thru file's lines
+    # if no file w/ given name exists will create it
+    # if file already exists it will be deleted & a new empty file will be created
+    # infile = open(someFile, "r")
+    # for line in infile:
+    #     # process the line here
+    # infile.close()
+
+    # open file for output
+    #
+    # outfile = open("mydata.out", "w")
 
 
 main()
