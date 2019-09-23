@@ -252,6 +252,7 @@ def main():
     # The value is 3.14.
 
     # ---pg.149---
+    # string format
     print("Hello {0} {1}, you may have won ${2}".format("Mr.", "Smith", 10000))
     # Hello Mr. Smith, you may have won $10000
     print("This int, {0:5}, was placed in a field of width 5".format(7))
