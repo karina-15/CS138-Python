@@ -25,11 +25,6 @@ def printAnt(numberStr):
     print("The ants go marching {0} by {0},".format(numberStr))
 
 
-def printVerse(numberStr):
-    printHurrah(numberStr)
-    printHurrah(numberStr)
-    printAnt(numberStr)
-
 def printLittleOne(activity):
     print("The little one stops to {0},".format(activity))
 
@@ -40,18 +35,30 @@ def printBoom():
     print("Of the rain.\nBoom! Boom! Boom!")
 
 
+def printVerse(numberStr, activity):
+    printHurrah(numberStr)
+    printHurrah(numberStr)
+    printAnt(numberStr)
+    printLittleOne(activity)
+    printBoom()
+
+
 def main():
     print()
     # Print introduction
     print("This program will print the lyrics to"
           "\n \"The Ants Go Marching\" using functions.\n")
 
-    printVerse("one")
-    printLittleOne("have some fun")
-    printBoom()
-    printVerse("two")
-    printLittleOne("tie his shoe")
-    printBoom()
+    printVerse("one", "have some fun")
+    printVerse("two", "ties his shoe")
+    printVerse("three", "flick a flea")
+    printVerse("four", "ask for more")
+    printVerse("five", "look at a hive")
+    printVerse("six", "pick up sticks")
+    printVerse("seven", "talk to Devin")
+    printVerse("eight", "greet a mate")
+    printVerse("nine", "smell a pine")
+    printVerse("ten", "go into the den")
 
 
 main()
