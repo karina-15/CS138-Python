@@ -12,39 +12,46 @@
 #
 # Overall Plan:
 # 1. Print introduction
-# 2. Prompt user to enter ...
-# 3. Prompt user to enter ...
-# 4. Calculate ...
-#    (use formula / logic / loop)
-# 5. Display the ...
+# 2. Display lyrics for "The Ants Go Marching." using functions
 #
 #
 # import the necessary python libraries
-import math  # Makes the math library available for pi & sin
+# for this example none are needed
+
+def printHurrah(numberStr):
+    print("The ants go marching {0} by {0}, hurrah! hurrah!".format(numberStr))
+
+def printAnt(numberStr):
+    print("The ants go marching {0} by {0},".format(numberStr))
+
+
+def printVerse(numberStr):
+    printHurrah(numberStr)
+    printHurrah(numberStr)
+    printAnt(numberStr)
+
+def printLittleOne(activity):
+    print("The little one stops to {0},".format(activity))
+
+
+def printBoom():
+    print("And they all go marching down...")
+    print("In the ground...\nTo get out...")
+    print("Of the rain.\nBoom! Boom! Boom!")
 
 
 def main():
     print()
     # Print introduction
-    print("This program will ...")
-    print("...")
-    print()
+    print("This program will print the lyrics to"
+          "\n \"The Ants Go Marching\" using functions.\n")
 
-    # ---Input--- #
-    # Get the ...
-    var1 = eval(input("Enter the ...: "))
-    # Get the ...
-    var2 = eval(input("Enter the ...: "))
-    print()
-
-    # ---Process--- #
-    # some calculation 
-    # var3 = var1 + var2
-    # some other calculation
-    # var4 = var3 * 10
-
-    # ---Output--- #
-    print("The ... var1 = %d var2 %.2f" % (var1, var2))
+    printVerse("one")
+    printLittleOne("have some fun")
+    printBoom()
+    printVerse("two")
+    printLittleOne("tie his shoe")
+    printBoom()
 
 
 main()
