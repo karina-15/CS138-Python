@@ -7,41 +7,32 @@
 # Date:         Oct 06, 2019
 #
 # Problem Statement: Programming Exercise #3 p.197
-#   This program will calculate and print your grade. It takes
-# the input is the percentage of
+#   This program will calculate and print the class letter
+#   grade given the percentage from the user.
 #
 #
 # Overall Plan:
 # 1. Print introduction
-# 2. Prompt user for sphere radius
-# 3. Calculate the area (A=4*pi*r^2)
-# 4. Calculate the volume (V=(4/3)*pi*r^3)
-# 5. Display area and volume of sphere
+# 2. Prompt user for percentage
+# 3. Use if-else statments to check grade
+# 4. Display the letter grade
 #
 #
 # import the necessary python libraries
-# math used for pi
-import math
-
-
-def sphereArea(radius):
-    area = 4 * math.pi * radius ** 2
-    return area
-
-
-def sphereVolume(radius):
-    volume = (4 / 3) * math.pi * radius ** 3
-    return volume
+# for this program none are needed
 
 
 def main():
     # Print introduction
-    print("This program will find the area and volume of a sphere.")
+    print("This program will display the letter grade given"
+          " the percentage.")
 
     # ---INPUT--- #
-    radius = eval(input("Enter radius: "))
+    percentage = eval(input("Enter percentage: "))
 
-    # ---PROCESS/OUTPUT--- #
+    # ---PROCESS--- #
+    if percentage >= 90:
+        grade = 'A'
     print("Surface area of the sphere = {0:.2f}".format(sphereArea(radius)))
     print("Volume of the sphere = {0:.2f}".format(sphereVolume(radius)))
 
