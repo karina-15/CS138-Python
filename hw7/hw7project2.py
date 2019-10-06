@@ -8,18 +8,18 @@
 #
 # Problem Statement:
 #   This program will estimate the adult height of a child
-#   using the formulas below and the height of the parents.
+#   using the formulas and the height of the parents.
 #   All input heights are in inches and output in feet and inches.
-#   Formulas:
-#   maleHeight = ((motherHeight * 13 / 12) + fatherHeight) / 2
-#   femaleHeight = ((fatherHeight * 12 / 13) + motherHeight) / 2
 #
 #
 # Overall Plan:
 # 1. Print introduction
-# 2. Prompt user child's gender, mother's height, and father's height
+# 2. Prompt user for child's gender, mother's height, and father's height
 # 3. Calculate estimated height using matching formula
-# 4. Display height in inches converted to feet and inches
+#       If male use ((motherHeight * 13 / 12) + fatherHeight) / 2
+#       If female use ((fatherHeight * 12 / 13) + motherHeight) / 2
+# 4. Convert height from inches to feet and inches
+# 5. Display height in inches converted to feet and inches
 #
 #
 # import the necessary python libraries
