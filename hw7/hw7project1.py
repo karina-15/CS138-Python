@@ -6,7 +6,7 @@
 # Programmer:   Karina Elias
 # Date:         Oct 06, 2019
 #
-# Problem Statement: Programming Exercise #3 p.197
+# Problem Statement:
 #   This program will calculate and print the class letter
 #   grade given the percentage from the user.
 #
