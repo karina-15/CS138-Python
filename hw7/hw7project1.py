@@ -9,6 +9,12 @@
 # Problem Statement:
 #   This program will calculate and print the class letter
 #   grade given the percentage from the user.
+#   Grading Scale:
+#       90% - 100%      A
+#       80% - 89.99%    B
+#       70% - 79.99%    C
+#       60% - 69.99%    D
+#       0%  - 59.99%    F
 #
 #
 # Overall Plan:
