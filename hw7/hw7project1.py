@@ -14,7 +14,7 @@
 # Overall Plan:
 # 1. Print introduction
 # 2. Prompt user for percentage
-# 3. Use if-else statments to check grade
+# 3. Use if-else statements to check grade
 # 4. Display the letter grade
 #
 #
@@ -25,7 +25,7 @@
 def main():
     # Print introduction
     print("This program will display the letter grade given"
-          " the percentage.")
+          " the percentage.\n")
 
     # ---INPUT--- #
     percentage = eval(input("Enter percentage: "))
@@ -33,8 +33,17 @@ def main():
     # ---PROCESS--- #
     if percentage >= 90:
         grade = 'A'
-    print("Surface area of the sphere = {0:.2f}".format(sphereArea(radius)))
-    print("Volume of the sphere = {0:.2f}".format(sphereVolume(radius)))
+    elif percentage >= 80:
+        grade = 'B'
+    elif percentage >= 70:
+        grade = 'C'
+    elif percentage >= 60:
+        grade = 'D'
+    else:
+        grade = 'F'
+
+    # ---OUTPUT--- #
+    print("Letter grade:", grade)
 
 
 main()
