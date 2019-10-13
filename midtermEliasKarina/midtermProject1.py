@@ -46,7 +46,7 @@
 #
 #
 # import the necessary python libraries
-# for this example math is needed
+# for this program math is needed
 import math
 
 
