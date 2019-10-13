@@ -2,7 +2,7 @@
 #
 # Homework No.  Midterm
 # Project No.   01
-# File Name:    midtermProject1.py, input.txt, output.txt
+# File Name:    midtermProject1.py, numbers.txt
 # Programmer:   Karina Elias
 # Date:         Oct. 13, 2019
 #
