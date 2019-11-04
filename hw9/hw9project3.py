@@ -7,8 +7,8 @@
 # Date:         Oct 26, 2019
 #
 # Problem Statement: Programming Exercise #2 p.334
-#   This program will use the Button class to create GUI for
-#   hw7project2.py. Write a program that takes as input the
+#   This program will use the new modified CButton class to create GUI for
+#   hw9project1.py. Write a program that takes as input the
 #   gender of the child, the height of the mother in inches
 #   and the height of the father in inches. Output the estimated
 #   adult height of the child in inches.  Convert this to feet,
@@ -22,7 +22,7 @@
 # 4. Create output text object
 # 5. Loop until Quit button is clicked
 # 6. When Calculate button is clicked display child's estimated
-#       adult height using hw7project2.py code
+#       adult height using hw9project1.py code
 # 7. Activate Quit button after Calculate button is clicked to
 #       allow user to exit and close program
 #
@@ -40,6 +40,7 @@ def main():
     win.setCoords(0.0, 0.0, 5.0, 5.0)
 
     # Draw the interface widgets/buttons
+    # Use modified CButton class
     calculateButton = CButton(win, Point(2.5, 2.2), 0.63, "Calculate")
     calculateButton.activate()
     quitButton = CButton(win, Point(2.5, 0.5), 0.35, "Quit")

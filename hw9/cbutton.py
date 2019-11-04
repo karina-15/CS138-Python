@@ -5,15 +5,15 @@ from graphics import *
 
 class CButton:
 
-    """A button is a labeled rectangle in a window.
+    """A button is a labeled circle in a window.
     It is activated or deactivated with the activate()
     and deactivate() methods. The clicked(p) method
     returns true if the button is active and p is inside it."""
 
     #def __init__(self, win, center, width, height, label):
     def __init__(self, win, center, radius, label):
-        """ Creates a rectangular button, eg:
-        qb = Button(myWin, Point(30,25), 20, 10, 'Quit') """
+        """ Creates a circular button, eg:
+        qb = Button(myWin, Point(30,25), 10, 'Quit') """
 
         #w,h = width/2.0, height/2.0
         #x,y = center.getX(), center.getY()
@@ -21,6 +21,7 @@ class CButton:
         #self.ymax, self.ymin = y+h, y-h
         #p1 = Point(self.xmin, self.ymin)
         #p2 = Point(self.xmax, self.ymax)
+        # uses center point and radius as parameters
         self.center_x = center.getX()
         self.center_y = center.getY()
         self.radius = radius

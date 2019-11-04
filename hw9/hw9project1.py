@@ -32,7 +32,6 @@
 from graphics import *
 from button import Button
 
-
 def main():
 
     # Create the application window
