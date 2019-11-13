@@ -14,69 +14,95 @@
 #
 # Overall Plan:
 # 1. Print introduction
-# 2. Draw interface widgets/buttons
-# 3. Draw window labels and entry boxes
-# 4. Create output text object
-# 5. Loop until Quit button is clicked
-# 6. When Calculate button is clicked display child's estimated
-#       adult height using hw7project2.py code
-# 7. Activate Quit button after Calculate button is clicked to
-#       allow user to exit and close program
+# 2. Prompt user for python file
+# 3. Create list of python file words
+# 4. Create list of reserved python words
+# 5. Create dictionary of reserved words and their frequency
+# 6. Sort list of reserved words by count from most to least
+# 7. Print results
 #
 #
 # import the necessary python libraries and classes
-# for this program none are needed
+# for this program regex is used to remove comments
+import re
 
-# ---Functions---
+
+# ---FUNCTIONS---
 def printIntro():
     print("\nThis program analyzes the frequency of python reserved\n"
           "words in a python file and prints a report in order of\n"
           "most used to least used.\n")
 
-# create list of all words in file
+
+# create list of all words in file code
 def fileTextList(filename):
     file = open(filename, 'r').read()
-    # remove symbol chars
+    # remove comments from python files
+    # https://stackoverflow.com/a/28401921
+    code = re.sub(r'(?m)^ *#.*\n?', '', file)
+    # remove symbol chars from python files
     for ch in '!"#$%&()*+,-./:;<=>?@[\\]^_`{|}~':
-        text = file.replace(ch, ' ')
+        cleanCode = code.replace(ch, ' ')
     # split at whitespace to create list
-    wordList = text.split()
+    wordList = cleanCode.split()
     return wordList
 
-# sort list of words by frequency count
+
+def createDictionary(wordsToCount, fileWords):
+    counts = {}
+    # runs through each word in python file
+    for word in fileWords:
+        # if word is a reserved word add to dictionary
+        # if not already in dictionary otherwise,
+        # increase count
+        if word in wordsToCount:
+            counts[word] = counts.get(word, 0) + 1
+    return counts
+
+
+# sort by count from highest to lowest frequency
+def sort(dictionary):
+    # create list of key-value pairs
+    items = list(dictionary.items())
+    items.sort()
+    # byFreq sorts by value (count) not key (word)
+    # reverse=True sorts from most to fewest
+    items.sort(key = byFreq, reverse = True )
+    return items
+
+
+# sort list of words by frequency count instead of words
 def byFreq(pair):
     return pair[1]
 
-# ---Main---
-def main():
-    printIntro()
-    # get list of python reserved words
-    reservedWords = fileTextList("reserved.txt")
-    # prompt user for python file
-    pythonFile = input("Python file to analyze: ")
-    # get list of words in python file
-    pyFileWords = fileTextList(pythonFile)
 
-    # # get the sequence of words from the file
-    # filename = input("File to analyze: ")
-    # text = open(filename, 'r').read()
-    # for ch in '!"#$%&()*+,-./:;<=>?@[\\]^_`{|}~':
-    #     text = text.replace(ch, ' ')
-    # text_word = text.split()
-
-    # construct a dictionary of word counts
-    counts = {}
-    for word in pyFileWords:
-        if word in reservedWords:
-            counts[word] = counts.get(word, 0) + 1
-
-    items = list(counts.items())
-    items.sort()
-    items.sort(key=byFreq, reverse=True)
-
-    for i in range(len(counts)):
+def printReport(dictionary, items):
+    # print every word and its count in counts dictionary
+    for i in range(len(dictionary)):
         word, count = items[i]
         print("{0:<10}{1:>5}".format(word, count))
+
+
+# ---MAIN---
+def main():
+    printIntro()
+
+    # ---INPUT---
+    # prompt user for python file
+    pythonFile = input("Python file to analyze: ")
+
+    # ---PROCESS---
+    # get list of words in python file code
+    pyFileWords = fileTextList(pythonFile)
+    # get list of python reserved words
+    reservedWords = fileTextList("reserved.txt")
+    # construct a dictionary of word counts
+    counts = createDictionary(reservedWords, pyFileWords)
+    # sort list of words by count from highest to lowest frequency
+    items = sort(counts)
+
+    # ---OUTPUT---
+    printReport(counts, items)
 
 
 if __name__ == '__main__':
