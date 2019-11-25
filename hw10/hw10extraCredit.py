@@ -30,16 +30,16 @@ def main():
             'heart': 'heart.ppm',
             'diamond': 'diamond.ppm',
             'spade': 'spade.ppm'}
-    win = GraphWin("Suit Display", 600, 400)
+    win = GraphWin("Card Display", 600, 400)
     win.setBackground("green")
-    banner = Text(Point(300, 30), "Display a Suit")
+    banner = Text(Point(300, 30), "Display a Card")
     banner.setSize(24)
     banner.setFill("yellow")
     banner.setStyle("bold")
     banner.draw(win)
     textBox = Entry(Point(300, 75), 10)
     textBox.draw(win)
-    displayCardButton = Button(win, Point(300, 115), 100, 20, "Display Suit")
+    displayCardButton = Button(win, Point(300, 115), 100, 20, "Display Card")
     displayCardButton.activate()  # after something is entered in text box
     rect = Rectangle(Point(225, 150), Point(375, 350))
     rect.draw(win)
@@ -48,8 +48,7 @@ def main():
 
     pt = win.getMouse()
     while not quitButton.clicked(pt):
-        if displayCardButton.clicked(pt)\
-                and textBox.getText() is not '':
+        if displayCardButton.clicked(pt) and textBox.getText() is not '':
             rect.setFill('white')
             inputText = textBox.getText()
             card = Image(Point(300, 250), suit[inputText])
