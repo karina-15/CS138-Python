@@ -8,7 +8,7 @@
 #
 # Problem Statement: Programming Exercise #1 p.423
 #   Modify the Dice Poker program from this chapter to include
-#   any or all of the following features:
+#   any or all of the following features: (chose (a) splash screen)
 #   (a) Splash Screen. When the program first fires up, have
 #       it print a short introductory message about the program
 #       and buttons for "Let's Play" and "Exit." The main interface
@@ -26,134 +26,71 @@
 #
 #
 # Overall Plan:
-# 1. Print introduction
-# 2. Prompt user for python file
-# 3. Create list of python file words
-# 4. Create list of reserved python words
-# 5. Create dictionary of reserved words and their frequency
-# 6. Sort list of reserved words by count from most to least
-# 7. Print results
+# 1. Create SplashScreen class
+# 2. Create window of same style as guipoker window
+# 3. Add "Let's Play" and "Exit" buttons
+# 4. Add button functionality to continue to pokerapp window
+#       or exit program
+# 5. Initialize in main
 #
 #
 # import the necessary python libraries and classes
-# for this program regex is used to remove comments
-# guipoker.py
+# for this program guipoker, pokerapp, and button are used
+# from the textbook
+# adds splash screen
 
 from graphics import *
+from guipoker import GraphicsInterface
 from pokerapp import PokerApp
 from button import Button
-from cdieview import ColorDieView
 
-
-class GraphicsInterface:
-
+class SplashScreen:
     def __init__(self):
+        # setup window name, size, background color
         self.win = GraphWin("Dice Poker", 600, 400)
         self.win.setBackground("green3")
-        banner = Text(Point(300, 30), "Python  Poker  Parlor")
+        # setup dice poker label
+        banner = Text(Point(300, 150), "Dice Poker")
         banner.setSize(24)
         banner.setFill("yellow2")
         banner.setStyle("bold")
         banner.draw(self.win)
-        self.msg = Text(Point(300, 380), "Welcome to the Dice Table")
-        self.msg.setSize(18)
-        self.msg.draw(self.win)
-        self.createDice(Point(300, 100), 75)
-        self.buttons = []
-        self.addDiceButtons(Point(300, 170), 75, 30)
-        b = Button(self.win, Point(300, 230), 400, 40, "Roll Dice")
-        self.buttons.append(b)
-        b = Button(self.win, Point(300, 280), 150, 40, "Score")
-        self.buttons.append(b)
-        b = Button(self.win, Point(570, 375), 40, 30, "Quit")
-        self.buttons.append(b)
-        self.money = Text(Point(300, 325), "$100")
-        self.money.setSize(18)
-        self.money.draw(self.win)
+        # setup message label
+        msg = Text(Point(300, 200), "Welcome to Dice Poker")
+        msg.setSize(18)
+        msg.draw(self.win)
+        # setup buttons
+        self.playBtn = Button(self.win, Point(250, 360), 75, 35, "Let's Play")
+        self.playBtn.activate()
+        self.exitBtn = Button(self.win, Point(350, 360), 75, 35, "Exit")
+        self.exitBtn.activate()
 
-    def createDice(self, center, size):
-        center.move(-3 * size, 0)
-        self.dice = []
-        for i in range(5):
-            view = ColorDieView(self.win, center, size)
-            self.dice.append(view)
-            center.move(1.5 * size, 0)
-
-    def addDiceButtons(self, center, width, height):
-        center.move(-3 * width, 0)
-        for i in range(1, 6):
-            label = "Die {0}".format(i)
-            b = Button(self.win, center, width, height, label)
-            self.buttons.append(b)
-            center.move(1.5 * width, 0)
-
-    def setMoney(self, amt):
-        self.money.setText("${0}".format(amt))
-
-    def showResult(self, msg, score):
-        if score > 0:
-            text = "{0}! You win ${1}".format(msg, score)
-        else:
-            text = "You rolled {0}".format(msg)
-        self.msg.setText(text)
-
-    def setDice(self, values):
-        for i in range(5):
-            self.dice[i].setValue(values[i])
-
-    def wantToPlay(self):
-        ans = self.choose(["Roll Dice", "Quit"])
-        self.msg.setText("")
-        return ans == "Roll Dice"
-
-    def close(self):
-        self.win.close()
-
-    def chooseDice(self):
-        # choices is a list of the indexes of the selected dice
-        choices = []  # No dice chosen yet
+    # get button click
+    def get_response(self):
+        # while True keep window open
         while True:
-            # wait for user to click a valid button
-            b = self.choose(["Die 1", "Die 2", "Die 3", "Die 4", "Die 5",
-                             "Roll Dice", "Score"])
+            # get mouse click point or
+            # keyboard entry
+            p = self.win.checkMouse()
+            k = self.win.checkKey()
+            # play
+            if p and self.playBtn.clicked(p) or k == "Return":
+                self.win.close()
+                return True
+            # exit
+            if p and self.exitBtn.clicked(p) or k == "Escape":
+                self.win.close()
+                return False
 
-            if b[0] == "D":  # User clicked a die button
-                i = eval(b[4]) - 1  # Translate label to die index
-                if i in choices:  # Currently selected, unselect it
-                    choices.remove(i)
-                    self.dice[i].setColor("black")
-                else:  # Currently unselected, select it
-                    choices.append(i)
-                    self.dice[i].setColor("gray")
-            else:  # User clicked Roll or Score
-                for d in self.dice:  # Revert appearance of all dice
-                    d.setColor("black")
-                if b == "Score":  # Score clicked, ignore choices
-                    return []
-                elif choices != []:  # Don't accept Roll unless some
-                    return choices  # dice are actually selected
-
-    def choose(self, choices):
-        buttons = self.buttons
-
-        # activate choice buttons, deactivate others
-        for b in buttons:
-            if b.getLabel() in choices:
-                b.activate()
-            else:
-                b.deactivate()
-
-        # get mouse clicks until an active button is clicked
-        while True:
-            p = self.win.getMouse()
-            for b in buttons:
-                if b.clicked(p):
-                    return b.getLabel()  # function exit here.
+def main():
+    # at start of program initialize splash screen
+    splash = SplashScreen()
+    # if playBtn is clicked, start GUI and run app
+    if splash.get_response():
+        inter = GraphicsInterface()
+        app = PokerApp(inter)
+        app.run()
 
 
-inter = GraphicsInterface()
-app = PokerApp(inter)
-app.run()
-
-# if __name__ == '__main__':
-#     main()
+if __name__ == '__main__':
+    main()
