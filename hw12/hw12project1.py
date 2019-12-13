@@ -22,34 +22,41 @@
 #
 #
 # import the necessary python libraries and classes
-# for this program regex is used to remove comments
+# for this program time and random is used
+# to get the time it takes to run each search
 from time import *
 from random import *
+
 
 # ---FUNCTIONS---
 def printIntro():
     print("\nThis program will compare the search times of\n"
           "linear search and binary search.\n")
 
+# create a list of sorted random numbers
 def createList(itemNum):
     randList = [randint(0, itemNum) for x in range(itemNum)]
     randList.sort()
     return randList
 
+# calculate time to perform linear search on list
 def linearSearch(num, intList):
     start_time = perf_counter_ns()
+    # search for number not in list
+    # so it goes through entire list
     for i in range(len(intList)):
         if intList[i] == num:
             index = i
     index = -1
     return perf_counter_ns() - start_time
 
+# calculate time to perform binary search on list
 def binarySearch(num, intList):
     start_time = perf_counter_ns()
     low = 0
     high = len(intList) - 1
     while low <= high:
-        mid = (low + high)//2
+        mid = (low + high) // 2
         item = intList[mid]
         if num == item:
             index = mid
@@ -60,12 +67,21 @@ def binarySearch(num, intList):
     index = -1
     return perf_counter_ns() - start_time
 
+
 def printSearchTimes(linearTime, binaryTime, items):
     # print every word and its count in counts dictionary
     print("{2} items\n"
           "Linear time = {0} ns\n"
           "Binary time = {1} ns\n"
           .format(linearTime, binaryTime, items))
+    # write results of searches to hw12project1.txt file
+    file = open("hw12project1.txt", 'a+')
+    file.write("{2} items\n"
+               "Linear time = {0} ns\n"
+               "Binary time = {1} ns\n\n"
+               .format(linearTime, binaryTime, items))
+    file.close()
+
 
 # ---MAIN---
 def main():
@@ -73,7 +89,7 @@ def main():
 
     # ---INPUT---
     items1, items2, items3 = 1000, 10000, 100000
-    list1, list2, list3 =\
+    list1, list2, list3 = \
         createList(items1), createList(items2), createList(items3)
 
     # ---OUTPUT---
