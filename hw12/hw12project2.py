@@ -6,7 +6,7 @@
 # Programmer:   Karina Elias
 # Date:         Dec. 12, 2019
 #
-# Problem Statement:
+# Problem Statement: Programming Exercise #3 p.463
 #   A palindrome is a sentence that contains the same sequence
 #   of letters reading it either forwards or backwards. A classic
 #   example is: "Able was I, ere I saw Elba." Write a recursive
