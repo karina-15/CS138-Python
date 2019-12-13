@@ -2,7 +2,7 @@
 #   Implementation of a DieView with changeable forground color
 #   Illustrates inheritance
 
-from dieview import DieView
+from hw11.h11project1.dieview import *
 
 class ColorDieView(DieView):
 

@@ -38,11 +38,10 @@
 # for this program guipoker, pokerapp, and button are used
 # from the textbook
 # adds splash screen
-
+from hw11.h11project1.guipoker import *
+from hw11.h11project1.pokerapp import *
+from hw11.h11project1.button import *
 from graphics import *
-from guipoker import GraphicsInterface
-from pokerapp import PokerApp
-from button import Button
 
 class SplashScreen:
     def __init__(self):
@@ -69,16 +68,14 @@ class SplashScreen:
     def get_response(self):
         # while True keep window open
         while True:
-            # get mouse click point or
-            # keyboard entry
+            # get mouse click point
             p = self.win.checkMouse()
-            k = self.win.checkKey()
             # play
-            if p and self.playBtn.clicked(p) or k == "Return":
+            if p and self.playBtn.clicked(p):
                 self.win.close()
                 return True
             # exit
-            if p and self.exitBtn.clicked(p) or k == "Escape":
+            if p and self.exitBtn.clicked(p):
                 self.win.close()
                 return False
 

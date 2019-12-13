@@ -1,8 +1,7 @@
 # guipoker.py
-
+from hw11.h11project1.button import *
+from hw11.h11project1.cdieview import *
 from graphics import *
-from button import Button
-from cdieview import ColorDieView
 
 class GraphicsInterface:
 
