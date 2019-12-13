@@ -1,6 +1,6 @@
 # pokerapp.py
 
-from hw11.h11project1.dice import *
+from hw11.hw11project1.dice import *
 
 class PokerApp:
 

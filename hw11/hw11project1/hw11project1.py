@@ -38,9 +38,9 @@
 # for this program guipoker, pokerapp, and button are used
 # from the textbook
 # adds splash screen
-from hw11.h11project1.guipoker import *
-from hw11.h11project1.pokerapp import *
-from hw11.h11project1.button import *
+from hw11.hw11project1.guipoker import *
+from hw11.hw11project1.pokerapp import *
+from hw11.hw11project1.button import *
 from graphics import *
 
 class SplashScreen:
