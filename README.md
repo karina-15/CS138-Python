@@ -1,4 +1,4 @@
-# CS 138 - Python Coursework
+# CS138_Python_Coursework
 > All coursework for CS 138 at
 > [MiraCosta Community College](http://catalog.miracosta.edu/disciplines/computerscience/#courseinventory)
 
