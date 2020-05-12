@@ -28,7 +28,7 @@
 # Overall Plan:
 # 1. Print introduction
 # 2. Get file name
-# 3. Open input.txt file as read
+# 3. Open numbers.txt file as read
 # 4. Create list
 # 5. Place ea. line from numbers.txt file into list
 # 6. Sort numbers in list

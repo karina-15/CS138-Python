@@ -9,6 +9,12 @@
 
 ## Table of Contents
 
+- [**Midterm**](midterm):
+    + [Project 1](midterm/project1): Calculate mean, median and standard deviation
+        from [numbers.txt](midterm/numbers.txt) file
+    + [Project 2](midterm/project2): Encode and decode Caesar ciphers
+    + [Project 3](midterm/project3): GUI for connect the dots picture
+---
 - [**HW 01**](hw01)
   - [Project 1](hw01/proj01): Calculate sum & multiplication of 3 numbers
   - [Project 2](hw01/proj02): Output results of chaos program (Ch. 1 Discussion 5 p.23)
