@@ -1,3 +1,3 @@
-Name: Anakin Skywalker	ID: 001	Number Classes: 5	Pay:$5000
-Name: Han Solo	ID: 002	Salary: 4000	Pay:$4000
-Name: Leia Organa	ID: 003	Hours: 40	Hourly Rate: 15	Pay:$600
+Anakin  Skywalker     001       5         ---         ---        5000
+Han     Solo          002       ---       ---         ---        4000
+Leia    Organa        003       ---       40           15        600

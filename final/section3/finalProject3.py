@@ -35,16 +35,16 @@
 #
 # import the necessary python libraries and classes
 # for this program None are used
-from finalEliasKarina.section3.Management import Management
-from finalEliasKarina.section3.Parttime import Parttime
-from finalEliasKarina.section3.Salary import Salary
-from finalEliasKarina.section3.Hourly import Hourly
+from Management import Management
+from Parttime import Parttime
+from Salary import Salary
+from Hourly import Hourly
 
 
 # print introduction
 def printIntro():
-    print("\nThis program will find the rank and number of a\n"
-          "popular name.\n")
+    print("\nThis program will create a MiraCosta Employee\n"
+          "Management system\n")
 
 
 # ---MAIN---
@@ -66,8 +66,17 @@ def main():
     # write management to file
     mccManagement.writeFile("mccEmployees.txt")
     # display employees to console
+    print('{0} {1} {2} {3} {4} {5} {6}'
+        .format('-Name-'.ljust(7),
+            ''.ljust(12),
+            '-ID-'.ljust(7),
+            '-Classes-'.ljust(10),
+            '-Hours-'.ljust(8),
+            '-Hourly Rate-'.ljust(14),
+            '-Pay-'))
     for emp in mccManagement.getEmpList():
         print(emp.printInfo())
+    print
 
 
 if __name__ == '__main__':

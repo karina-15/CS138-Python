@@ -6,10 +6,10 @@
 # Programmer:   Karina Elias
 # Date:         Dec. 14, 2019
 
-from finalEliasKarina.section3.Employee import Employee
-from finalEliasKarina.section3.Parttime import Parttime
-from finalEliasKarina.section3.Salary import Salary
-from finalEliasKarina.section3.Hourly import Hourly
+from Employee import Employee
+from Parttime import Parttime
+from Salary import Salary
+from Hourly import Hourly
 
 
 class Management:

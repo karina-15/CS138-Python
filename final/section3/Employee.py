@@ -23,7 +23,7 @@ class Employee:
         return self.employeeID
 
     def printInfo(self):
-        return str("Name: {0} {1}\tID: {2}".
-                   format(self.getFirstName(),
-                          self.getLastName(),
-                          self.getEmployeeID()))
+        return str("{0} {1} {2}".
+                   format(self.getFirstName().ljust(7),
+                          self.getLastName().ljust(13),
+                          self.getEmployeeID().ljust(9)))
