@@ -2,7 +2,7 @@
 > Find rank and number of popular names using dictionary
 
 ## Screenshot
-![screenshot](finalSection.png)
+![screenshot](finalSection2.png)
 
 ## Instructions
 > Two textfiles exist on canvas called [boynames.txt](boynames.txt) and [girlnames.txt](girlnames.txt).  
