@@ -52,14 +52,11 @@ def main():
     printIntro()
 
     empList = []
-    # create employees
-    parttime = Parttime("Anakin", "Skywalker", "001", 5)
-    salary = Salary("Han", "Solo", "002", 4000)
-    hourly = Hourly("Leia", "Organa", "003", 40, 15)
-    # add employees to list
-    empList.append(parttime)
-    empList.append(salary)
-    empList.append(hourly)
+    # create and add employees to list
+    empList.append(Parttime("Luke", "Skywalker", len(empList), 5))
+    empList.append(Salary("Han", "Solo", len(empList), 4000))
+    empList.append(Hourly("Leia", "Organa", len(empList), 40, 15))
+    empList.append(Hourly("Anakin", "Skywalker", len(empList), 35, 20))
     # create management list
     mccManagement = Management()
     mccManagement.addEmpList(empList)
@@ -76,7 +73,7 @@ def main():
             '-Pay-'))
     for emp in mccManagement.getEmpList():
         print(emp.printInfo())
-    print
+    print()
 
 
 if __name__ == '__main__':

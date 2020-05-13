@@ -32,6 +32,14 @@ class Management:
     # write management list to file
     def writeFile(self, filename):
         with open(filename, 'w') as file:
+            file.write('{0} {1} {2} {3} {4} {5} {6}\n'
+                .format('-Name-'.ljust(7),
+                    ''.ljust(12),
+                    '-ID-'.ljust(7),
+                    '-Classes-'.ljust(10),
+                    '-Hours-'.ljust(8),
+                    '-Hourly Rate-'.ljust(14),
+                    '-Pay-'))
             for emp in self.getEmpList():
                 file.write(emp.printInfo())
                 file.write("\n")
