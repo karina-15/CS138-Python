@@ -15,11 +15,16 @@ from Hourly import Hourly
 class Management:
     def __init__(self):
         self.empList = []
+        self.listSize = len(self.empList)
 
     def getEmpList(self):
         return self.empList
 
+    def getListSize(self):
+        return self.listSize
+
     def addEmp(self, emp):
+        self.listSize += 1
         self.getEmpList().append(emp)
 
     def addEmpList(self, employees):
@@ -48,38 +53,46 @@ class Management:
     def readFile(self, filename):
         empList = []
         hasNextLine = True
-
+        # display header
+        print(str("Retrieving employee type from file\n"
+                  "{0} {1} {2}".
+            format('-Name-'.ljust(7),
+                   ''.ljust(11),
+                   '-Employee Type-')))
         # while there are still employees in file
         while hasNextLine:
             with open(filename, 'r') as file:
-                # get firstName, lastName, and empID
-                empNameLine = file.readline()
-                empNameList = empNameLine.split()
-                firstName = empNameList[1]
-                lastName = empNameList[2]
-                idLine = empNameList[2]
-                idList = idLine.split()
-                empID = idList[1]
-                # get type of employee (language lookahead)
-                checkEmpClass = file.read()
-                checkEmpClassList = checkEmpClass.split()
-                empType = checkEmpClassList[0]
-                # part-time employee
-                if empType == "Number":
-                    numClasses = checkEmpClassList[2]
-                    parttime = Parttime(firstName, lastName, empID, numClasses)
-                    empList.append(parttime)
-                # salary employee
-                elif empType == "Salary":
-                    salary = checkEmpClassList[1]
-                    salaryEmp = Salary(firstName, lastName, empID, salary)
-                    empList.append(salaryEmp)
-                # hourly employee
-                elif empType == "Hours":
-                    hours = checkEmpClassList[2]
-                    hourlyRate = file.readline()
-                    hourlyRateList = hourlyRate.split()
-                    hoursRate = hourlyRateList[2]
-                    hourly = Hourly(firstName, lastName, empID, hours, hoursRate)
-                    empList.append(hourly)
+                file.readline() # 1st line / headings
+                # read rest of lines in file
+                fileLines = file.readlines()
+                # for every line
+                for empLine in fileLines:
+                    # separate the data by whitespace into list
+                    empLineSplit = empLine.split()
+                    # if length of line is only 3 columns
+                    # employee type is default Employee
+                    if len(empLineSplit) < 4:
+                        empType = 'Employee'
+                    # if 4th column (classes) is empty
+                    # check 5th column (hours)
+                    elif empLineSplit[3] == '---':
+                        # if 5th column (hours) is empty
+                        # employee type is salary
+                        if empLineSplit[4] == '---':
+                            empType = 'Salary'
+                        # if 5th column (hours) contains info
+                        # employee type is hourly
+                        else:
+                            empType = 'Hourly'
+                    # if 4th column (classes) contains info
+                    # employee type is parttime
+                    else:
+                        empType = 'Part-time'
+                    # display employee name and type
+                    empList.append(str("{0} {1} {2}".
+                        format(empLineSplit[0].ljust(7),
+                               empLineSplit[1].ljust(13),
+                               empType)))
+            # EOF is reached
+            hasNextLine = False
         return empList

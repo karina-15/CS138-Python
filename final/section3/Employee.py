@@ -21,15 +21,6 @@ class Employee:
         return self.lastName
 
     def getEmployeeID(self):
-        # print(self.employeeID)
-        # self.employeeID = int(self.employeeID) + 1
-        # print(self.employeeID)
-        # self.employeeID = '00' + str(self.employeeID)
-        # print(self.employeeID)
-
-        # self.employeeID = int(self.employeeID) + 1
-        # self.employeeID = '00' + str(self.employeeID)
-
         return self.employeeID
 
     def printInfo(self):

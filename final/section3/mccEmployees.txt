@@ -1,5 +1,5 @@
 -Name-               -ID-    -Classes-  -Hours-  -Hourly Rate-  -Pay-
-Luke    Skywalker     001       5         ---         ---        5000
+Luke    Skywalker     001       3         ---         ---        3000
 Han     Solo          002       ---       ---         ---        4000
-Leia    Organa        003       ---       40           15        600
-Anakin  Skywalker     004       ---       35           20        700
+Leia    Organa        004       ---       40           15        600
+First   Last          005      

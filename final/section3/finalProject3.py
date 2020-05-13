@@ -35,10 +35,11 @@
 #
 # import the necessary python libraries and classes
 # for this program None are used
+from Employee   import Employee
 from Management import Management
-from Parttime import Parttime
-from Salary import Salary
-from Hourly import Hourly
+from Parttime   import Parttime
+from Salary     import Salary
+from Hourly     import Hourly
 
 
 # print introduction
@@ -46,34 +47,56 @@ def printIntro():
     print("\nThis program will create a MiraCosta Employee\n"
           "Management system\n")
 
+# display employees to console
+def printEmps(mccManagement):
+    print('{0} {1} {2} {3} {4} {5} {6}'
+          .format('-Name-'.ljust(7),
+                  ''.ljust(12),
+                  '-ID-'.ljust(7),
+                  '-Classes-'.ljust(10),
+                  '-Hours-'.ljust(8),
+                  '-Hourly Rate-'.ljust(14),
+                  '-Pay-'))
+    for emp in mccManagement.getEmpList():
+        print(emp.printInfo())
+    print()
+
 
 # ---MAIN---
 def main():
     printIntro()
-
-    empList = []
-    # create and add employees to list
-    empList.append(Parttime("Luke", "Skywalker", len(empList), 5))
-    empList.append(Salary("Han", "Solo", len(empList), 4000))
-    empList.append(Hourly("Leia", "Organa", len(empList), 40, 15))
-    empList.append(Hourly("Anakin", "Skywalker", len(empList), 35, 20))
+    # database filename
+    dbFilename = "mccEmployees.txt"
     # create management list
     mccManagement = Management()
-    mccManagement.addEmpList(empList)
-    # write management to file
-    mccManagement.writeFile("mccEmployees.txt")
-    # display employees to console
-    print('{0} {1} {2} {3} {4} {5} {6}'
-        .format('-Name-'.ljust(7),
-            ''.ljust(12),
-            '-ID-'.ljust(7),
-            '-Classes-'.ljust(10),
-            '-Hours-'.ljust(8),
-            '-Hourly Rate-'.ljust(14),
-            '-Pay-'))
-    for emp in mccManagement.getEmpList():
-        print(emp.printInfo())
-    print()
+    # create and add employees to list
+    mccManagement.addEmp(Parttime("Luke", "Skywalker",
+        mccManagement.getListSize(), 3))
+    mccManagement.addEmp(Salary("Han", "Solo",
+        mccManagement.getListSize(), 4000))
+    removeEmp1 = Hourly("Anakin", "Skywalker",
+        mccManagement.getListSize(), 35, 20)
+    mccManagement.addEmp(removeEmp1)
+    mccManagement.addEmp(Hourly("Leia", "Organa",
+        mccManagement.getListSize(), 40, 15))
+    # display management list
+    print("Adding employees")
+    printEmps(mccManagement)
+    # remove an employee and display management list
+    mccManagement.removeEmp(removeEmp1)
+    print("Removing employee ID " + removeEmp1.getEmployeeID())
+    printEmps(mccManagement)
+    # add a default parent class Employee and display management list
+    mccManagement.addEmp(Employee("First", "Last", mccManagement.getListSize()))
+    print("Adding a default parent class Employee")
+    printEmps(mccManagement)
+    # save management db to file
+    print("Saving database to " + dbFilename)
+    mccManagement.writeFile(dbFilename)
+    # load management db file
+    print("Loading database from " + dbFilename)
+    for emp in mccManagement.readFile(dbFilename):
+        print(emp)
 
 
 if __name__ == '__main__':
