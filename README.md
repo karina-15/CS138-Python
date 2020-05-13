@@ -16,7 +16,7 @@
     + [Project 3](midterm/proj03): GUI for connect the dots picture
 ---
 - [**Final**](final):
-    + [Section 1](final/section1): GUI spellchecker for [myFile.txt](final/section1/myFile.txt) file using binary search
+    + [Section 1](final/section1): GUI spellchecker for [my1stDraft.txt](final/section1/my1stDraft.txt) and [myFinalDraft.txt](final/section1/myFinalDraft.txt) files using binary search
     + [Section 2](final/section2): Find rank and number of popular names using dictionary
     + [Section 3](final/section3): Create MiraCosta Employee Management system using inheritance and polymorphism
 ---

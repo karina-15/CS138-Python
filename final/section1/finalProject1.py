@@ -29,7 +29,7 @@
 # import the necessary python libraries and classes
 # for this program graphics, button, and string
 # are used for the GUI and word comparison
-from finalEliasKarina.section1.button import *
+from final.section1.button import *
 from graphics import *
 from string import ascii_letters
 
@@ -37,7 +37,7 @@ from string import ascii_letters
 # create GUI
 class GraphicsInterface:
     def __init__(self):
-        self.win = GraphWin("Spell Check", 600, 400)
+        self.win = GraphWin("Spell Check", 600, 400, autoflush=False)
         # info labels
         instructLabel = Text(Point(300, 40), "Enter file names to check spelling")
         instructLabel.draw(self.win)
@@ -49,6 +49,8 @@ class GraphicsInterface:
         self.fileToCheckEntry = Entry(Point(150, 200), 15)
         self.fileToCheckEntry.draw(self.win)
         self.dictEntryFile = Entry(Point(450, 200), 15)
+        self.dictEntryFile.setText("english.txt")
+        update()
         self.dictEntryFile.draw(self.win)
         # buttons
         self.fileToCheckBtn = Button(self.win, Point(150, 375), 90, 20, "Spell Check")
@@ -60,6 +62,8 @@ class GraphicsInterface:
     # checks for button clicks
     # and file inputs
     def inputs(self):
+        self.misspelledLabel = Text(Point(300, 250), "")
+        self.misspelledLabel.draw(self.win)
         while True:
             mc = self.win.getMouse()
             # check file if clicked
@@ -69,8 +73,8 @@ class GraphicsInterface:
                 misspelled = self.misspelledWords(fileToCheckList, dictList)
                 # display message if no misspelled words
                 if not misspelled:
-                    self.noMisspelledLabel = Text(Point(300, 250), "No misspelled words")
-                    self.noMisspelledLabel.draw(self.win)
+                    self.misspelledLabel.setText("No misspelled words")
+                    update()
             # close program
             elif self.quitBtn.clicked(mc):
                 break
@@ -87,16 +91,17 @@ class GraphicsInterface:
 
     # display misspelled words to GUI
     def misspelledWords(self, fileToCheckList, dictList):
-        mispelled = False
-        height = 250
+        misspelled = False
+        misspelledList = []
         for word in fileToCheckList:
-            mispelledWord = self.binarySearch(dictList, word)
-            if mispelledWord is None:
-                self.misspelledLabel = Text(Point(300, height), word)
-                self.misspelledLabel.draw(self.win)
-                height += 15
-                mispelled = True
-        return mispelled
+            misspelledWord = self.binarySearch(dictList, word)
+            if misspelledWord is None:
+                misspelledList.append(word)
+                misspelled = True
+            misspelledList.sort()
+            self.misspelledLabel.setText('\n'.join(misspelledList))
+            update()
+        return misspelled
 
     # binary search on misspelled words
     # using algorithm from textbook
