@@ -30,7 +30,7 @@
 
 def main():
     # Print introduction
-    print("This program will display the letter grade given"
+    print("This program will display the letter grade given\n"
           " the percentage.\n")
 
     # ---INPUT--- #

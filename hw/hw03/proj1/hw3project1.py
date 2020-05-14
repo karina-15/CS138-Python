@@ -27,8 +27,8 @@ import math  # Makes the math library available for pi
 
 def main():
     # Print introduction
-    print("This program will calculate the cost per square"
-          " inch of a circular pizza.")
+    print("This program will calculate the cost\nper square "
+          "inch of a circular pizza.")
 
     # ---Input--- #
     # Get the diameter of the pizza in inches

@@ -57,8 +57,8 @@
         * [Project 3](hw/hw08/proj3): Handwritten truth tables
     + [**HW 09**](hw/hw09)
         * [Project 1](hw/hw09/proj1): GUI for [hw07proj2](hw/hw07/proj2) to estimate height of child
-        * [Project 2](hw/hw09/proj2): GUI with modified circular button, [cbutton.py](hw/hw09/proj2/cbutton.py)
-        * [Project 3](hw/hw09/proj3): GUI for [hw09proj1](hw/hw09/proj1) with modified [cbutton.py](hw/hw09/proj2/cbutton.py)
+        * [Project 2](hw/hw09/proj2): GUI with modified circular button, [cbutton.py](cbutton.py)
+        * [Project 3](hw/hw09/proj3): GUI for [hw09proj1](hw/hw09/proj1) with modified [cbutton.py](cbutton.py)
     + [**HW 10**](hw/hw10)
         * [Project 1](hw/hw10/proj1): Counts [reserved](hw/hw10/proj1/reserved.txt) words python file
         * [Project 2](hw/hw10/proj2): GUI for suit of card using dictionary

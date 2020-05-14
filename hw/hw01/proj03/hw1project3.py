@@ -25,7 +25,8 @@
 
 def main():
     # Input
-    print("This program will calculate the completion percentage for a quarterback.")
+    print("\nThis program will calculate the completion\n"
+          "percentage for a quarterback.\n")
     print("Enter number of completions:")
     num1 = eval(input())
     print("Enter number of pass attempts:")

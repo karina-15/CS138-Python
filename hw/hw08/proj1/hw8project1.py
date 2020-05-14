@@ -40,7 +40,7 @@ def main():
 
     # ---OUTPUT--- #
     if n >= 0:
-        print("Fibonacci number for term {0}: {1}".format(n, fib(n)))
+        print("Fibonacci number for term {0}: {1}".format(n, fib(n - 1)))
     else:
         print("{0} is not a valid number.".format(n))
 

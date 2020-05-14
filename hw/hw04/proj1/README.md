@@ -1,8 +1,8 @@
-# Homework = Project =
-> =
+# Homework 04 Project 01
+> GUI to draw a simple picture
 
 ## Screenshot
-![screenshot](=.gif)
+![screenshot](hw4project1.png)
 
 ## Instructions
-> =
+> Draw a simple picture with at least 3 graphical objects.

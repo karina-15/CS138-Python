@@ -35,7 +35,7 @@ def sphereVolume(radius):
 
 def main():
     # Print introduction
-    print("This program will find the area and volume of a sphere.")
+    print("This program will find the area\nand volume of a sphere.")
 
     # ---INPUT--- #
     radius = eval(input("Enter radius: "))

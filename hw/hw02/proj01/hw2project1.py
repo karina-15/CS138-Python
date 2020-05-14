@@ -26,8 +26,8 @@
 
 def main():
     # Print introduction
-    print("This program converts the temperature from Celsius")
-    print("to Fahrenheit.")
+    print("\nThis program converts the temperature from Celsius\n"
+          "to Fahrenheit.")
 
     # Program convert.py (Section 2.2 p.30)
     celsius = eval(input("What is the Celsius temperature? "))

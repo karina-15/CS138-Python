@@ -32,7 +32,7 @@ def sumList(nums):
 
 def main():
     # Print introduction
-    print("This program will calculate the sum of all numbers in a list.\n")
+    print("This program will calculate the sum of\nall numbers in a list.\n")
 
     # ---INPUT--- #
     nums = [21, 47, 10, 3, 25]

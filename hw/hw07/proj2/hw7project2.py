@@ -28,7 +28,7 @@
 
 def main():
     # Print introduction
-    print("\nThis program will display the estimated adult height"
+    print("\nThis program will display the estimated adult height\n"
           " of a child.\n")
 
     # ---INPUT--- #

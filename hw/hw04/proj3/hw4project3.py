@@ -112,7 +112,11 @@ def main():
     results_text = "midpoint = ({0}, {1})" \
                    "   length = {2}" \
                    "   slope = {3}" \
-                   "\nClick to exit".format(midx, midy, length, slope)
+                   "\nClick to exit".\
+        format(round(midx, 2),
+               round(midy, 2),
+               round(length,2),
+               round(slope, 2))
     info_label.setText(results_text)
 
     # Close window

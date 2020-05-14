@@ -38,56 +38,45 @@
 # for this program guipoker, pokerapp, and button are used
 # from the textbook
 # adds splash screen
-from hw11.hw11project1.guipoker import *
-from hw11.hw11project1.pokerapp import *
-from hw11.hw11project1.button import *
+from guipoker import *
+from pokerapp import *
+from button import *
 from graphics import *
 
-class SplashScreen:
-    def __init__(self):
-        # setup window name, size, background color
-        self.win = GraphWin("Dice Poker", 600, 400)
-        self.win.setBackground("green3")
-        # setup dice poker label
-        banner = Text(Point(300, 150), "Dice Poker")
-        banner.setSize(24)
-        banner.setFill("yellow2")
-        banner.setStyle("bold")
-        banner.draw(self.win)
-        # setup message label
-        msg = Text(Point(300, 200), "Welcome to Dice Poker")
-        msg.setSize(18)
-        msg.draw(self.win)
-        # setup buttons
-        self.playBtn = Button(self.win, Point(250, 360), 75, 35, "Let's Play")
-        self.playBtn.activate()
-        self.exitBtn = Button(self.win, Point(350, 360), 75, 35, "Exit")
-        self.exitBtn.activate()
 
-    # get button click
-    def get_response(self):
-        # while True keep window open
+class SplashScreen(GraphWin):
+    def __init__(self, win):
+        GraphWin.__init__(self, win, "Dice Poker", 600, 400)
+        # self.win = GraphWin("Dice Poker", 600, 400)
+        self.win.setBackground("green3")
+
+        self.label1 = Text(Point(150, 40), "Welcome to Dice Poker")
+        self.label1.draw(win)
+        self.label2 = Text(Point(150, 80), "Play poker using five dice.")
+        self.label2.draw(win)
+        self.label3 = Text(Point(150, 100), "Up to two re-rolls are allowed.")
+        self.label3.draw(win)
+
+        self.button_play = Button(win, Point(95, 200 - 40), 75, 35, "Let's Play")
+        self.button_exit = Button(win, Point(207, 200 - 40), 75, 35, "Exit")
+        self.button_play.activate()
+        self.button_exit.activate()
+
+
+    def get_response(self, win):
         while True:
-            # get mouse click point
             p = self.win.checkMouse()
-            # play
-            if p and self.playBtn.clicked(p):
-                self.win.close()
+            if p and self.button_play.clicked(p):
+                self.button_play.label.undraw()
+                self.button_play.deactivate()
+                self.button_play.rect.undraw()
+                self.button_exit.label.undraw()
+                self.button_exit.deactivate()
+                self.button_exit.rect.undraw()
+                self.label1.undraw()
+                self.label2.undraw()
+                self.label3.undraw()
                 return True
-            # exit
-            if p and self.exitBtn.clicked(p):
+            if p and self.button_exit.clicked(p):
                 self.win.close()
                 return False
-
-def main():
-    # at start of program initialize splash screen
-    splash = SplashScreen()
-    # if playBtn is clicked, start GUI and run app
-    if splash.get_response():
-        inter = GraphicsInterface()
-        app = PokerApp(inter)
-        app.run()
-
-
-if __name__ == '__main__':
-    main()

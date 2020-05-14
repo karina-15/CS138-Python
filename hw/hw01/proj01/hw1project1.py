@@ -41,7 +41,7 @@ def main():
 
     # Output the results
     print("The sum of the three numbers is", sum)
-    print("The result of multiplying the three numbers is", result)
+    print("The result of multiplying the\nthree numbers is", result)
 
 
 main()

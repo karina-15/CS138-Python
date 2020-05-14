@@ -47,8 +47,8 @@ def main():
             r, g, b = img.getPixel(row, column)
             brightness = int(round(0.229 * r + 0.587 * g + 0.114 * b))
             img.setPixel(row, column, color_rgb(brightness, brightness, brightness))
+            win.update()
     # ---OUTPUT--- #
-        update()
     saveFileName = input("Enter new filename to save grayscale image as: ")
     img.save(saveFileName)
     print("Click image window to exit program")
